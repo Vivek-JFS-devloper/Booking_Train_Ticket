@@ -1,8 +1,11 @@
 package in.ramesh.response;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Data;
 
 @Data
+@XmlRootElement
 public class Ticket {
 	private Integer tickedId;
 	private String fname;
