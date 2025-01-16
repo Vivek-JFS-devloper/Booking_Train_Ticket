@@ -25,11 +25,9 @@ public class IRCTCRestController {
 			consumes = {"application/xml","application/json"},
 			produces = {"application/xml","application/json"}
 		)
-	public ResponseEntity<Integer> bookTicket(@RequestBody Passenger passenger){
+	public ResponseEntity<Ticket> bookTicket(@RequestBody Passenger passenger){
 		 
 		int ticketId = (int) (Math.random()*1000000000);
-		System.out.println(passenger.getTrainName());
-		
 		Ticket t = new Ticket();
 		t.setTickedId(ticketId);
 		t.setFname(passenger.getFname());
@@ -44,7 +42,7 @@ public class IRCTCRestController {
 		System.out.println(t.getTrainName());
 		 
 		tickets.put(ticketId, t);
-		return new ResponseEntity<>(t.getTickedId(),HttpStatus.CREATED);
+		return new ResponseEntity<>(t,HttpStatus.CREATED);
 	}
 	
 	
